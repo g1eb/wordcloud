@@ -52,7 +52,7 @@ def get_inputfile(argv):
 
     #if not eventsfile or not entitiesfile or not timesfile or not opinionsfile: print err_msg; sys.exit()
     if not length: print '..... Output length not specified, using default: 1000 or max length'; length = 1000
-    if not noisefile: print '..... Noise text file not specified';
+    if not noisefile: print '..... Noise text file not specified, using default: noise.json'; noisefile = 'noise.json'
     if not outputfile: print '..... Output prefix not specified, using default: output.json'; outputfile = 'output'
     if not inputfile: print '..... Input file not specified, using default: data.json'; inputfile = 'data.json'
 
@@ -70,11 +70,8 @@ def parseInput(inputfile, noisefile):
     except IOError, e:
         print e; sys.exit()
 
-    if noisefile:
-        with open(noisefile) as f:
-            noise = json.load(f)
-    else:
-        noise = []
+    with open(noisefile) as f:
+        noise = json.load(f)
 
     return data, noise
 
