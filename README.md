@@ -16,10 +16,18 @@ Click <a href="https://rawgit.com/g1eb/wordcloud/master/" target="_blank">here</
 $ ./filter.py -i data.txt -o output.json
 ```
 
-You can supply a noise file using the -n flag, __noise_en.json__ is used by default  
-The script expects __output.json__, if you rename output file change the script in src/js/cloud.js
+For this to work you need to install pandas (pip install pandas).
+That script will dump aggregated tokens json right in the current directory.
 
-2) Serve that directory and view wordcloud in a browser :)
+2) Update OUTPUT variable in src/js/cloud.js
+
+```
+var OUTPUT = 'output.json';
+```
+
+You need to set OUTPUT variable to the location of the new output.json file.
+
+3) Serve that directory and view wordcloud in a browser :)
 
 ```
 $ python -m SimpleHTTPServer 8000
@@ -36,9 +44,6 @@ $ serve .
 
 ## Dependencies
 
-### Filtering
-* [pandas](http://pandas.pydata.org/)
-
-### Visualisation
 * [d3.js](https://d3js.org/)
 * [d3.layout.cloud.js](https://gist.github.com/emeeks/3361332)
+* [pandas](http://pandas.pydata.org/)
