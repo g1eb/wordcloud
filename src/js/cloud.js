@@ -2,13 +2,15 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
+  var OUTPUT = 'https://gist.githubusercontent.com/g1eb/ab5a80baf6ca9598e76b45aed271c107/raw/7d2e6e04e7c051e1e66f09e2283bc8e2f2b391d1/output.json';
+
   var colors = d3.scale.category20();
 
   var width = 960;
   var height = 500;
 
   // Get data from server
-  d3.json('output.json', function(error, data) {
+  d3.json(OUTPUT, function(error, data) {
     if (error) { throw error; }
     setup(data);
   });
