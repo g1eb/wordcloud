@@ -90,7 +90,7 @@ def allowed(value, noise):
     if value.isdigit():
         return False
 
-    if value in noise:
+    if unicode(value, 'utf-8') in noise:
         return False
 
     if re.match(r'^https?://.*$', value):
