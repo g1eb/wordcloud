@@ -54,7 +54,7 @@ def get_inputfile(argv):
     if not length: print '..... Output length not specified, using default: 1000 or max length'; length = 1000
     if not noisefile: print '..... Noise text file not specified, using default: noise.json'; noisefile = 'noise.json'
     if not outputfile: print '..... Output prefix not specified, using default: output.json'; outputfile = 'output'
-    if not inputfile: print '..... Input file not specified, using default: data.json'; inputfile = 'data.json'
+    if not inputfile: print '..... Input file not specified, using default: data.txt'; inputfile = 'data.txt'
 
     return [inputfile, noisefile, outputfile, length]
 
@@ -66,7 +66,7 @@ def parseInput(inputfile, noisefile):
     try:
         print '....... Reading data file'
         print '                .... hold on ....'
-        data = pd.read_json(inputfile)
+        data = open(inputfile).read().split()
     except IOError, e:
         print e; sys.exit()
 
@@ -118,7 +118,7 @@ def getWordCounts(data, noise, length):
     print '                            ... might take a while .......'
 
     df = pd.DataFrame(columns=['text', 'size'])
-    df['text'] = [re.sub(r'\W+$', '', word) for words in data['text'].str.split() for word in words if allowed(word, noise)]
+    df['text'] = [re.sub(r'\W?', '', word) for word in data if allowed(word, noise)]
     df['text'] = df['text'].str.lower()
     df['size'] = df.groupby('text')['text'].transform('count')
     df = df.dropna().drop_duplicates()
