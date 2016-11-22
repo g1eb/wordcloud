@@ -2,8 +2,6 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
-  //var colors = d3.scale.quantize()
-  //  .range(colorbrewer.RdYlGn[11]);
   var colors = d3.scale.category20();
 
   var width = 960;
