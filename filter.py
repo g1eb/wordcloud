@@ -65,7 +65,7 @@ def parseInput(inputfile, noisefile):
 
     try:
         print '....... Reading data file'
-        print '                .... hold on ....'
+        print '.................... hold on ....'
         data = open(inputfile).read().split()
     except IOError, e:
         print e; sys.exit()
@@ -114,8 +114,8 @@ def translate(value, leftMin, leftMax, rightMin, rightMax):
 
 ## Get word counts
 def getWordCounts(data, noise, length):
-    print '.......... Pandas are working their magic now'
-    print '                            ... might take a while .......'
+    print '.............................. pandas are working their magic now'
+    print '............................................ might take a while .......'
 
     df = pd.DataFrame(columns=['text', 'size'])
     df['text'] = [re.sub(r'\W?', '', word) for word in data if allowed(word, noise)]
