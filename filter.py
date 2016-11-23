@@ -84,7 +84,7 @@ def allowed(value, noise):
 
     value = value.lower()
 
-    if len(value) == 1:
+    if len(value) < 3:
         return False
 
     if value.isdigit():
