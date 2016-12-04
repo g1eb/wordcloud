@@ -18,13 +18,13 @@ def main(argv):
 ## Process the arguments and return the settings
 def get_inputfile(argv):
     err_msg = ('\n\n\n'
-               'Please provide a json input file:\n' 
+               'Please provide a plaintext input file:\n'
                '\n\nOptional arguments are:\n'
                '-h, --help\t\tDisplay this message and exit\n'
                '-l, --length\t\tPreferred output length\n'
                '-n, --noise\t\tText file with noise terms to be filtered out\n'
                '-o, --output\t\tPrefix for output filename\n'
-               '-i, --input\t\tJSON input file\n'
+               '-i, --input\t\tplaintext input file\n'
                'Example usage could be:\n'
                '$ ./filter.py -i data.json -o filtered_data.json\n\n')
 
