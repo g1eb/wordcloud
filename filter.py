@@ -53,7 +53,7 @@ def get_inputfile(argv):
     #if not eventsfile or not entitiesfile or not timesfile or not opinionsfile: print err_msg; sys.exit()
     if not length: print '..... Output length not specified, using default: 1000 or max length'; length = 1000
     if not noisefile: print '..... Noise text file not specified, using default: noise.json'; noisefile = 'noise.json'
-    if not outputfile: print '..... Output prefix not specified, using default: output.json'; outputfile = 'output'
+    if not outputfile: print '..... Output prefix not specified, using default: output.json'; outputfile = 'output.json'
     if not inputfile: print '..... Input file not specified, using default: data.txt'; inputfile = 'data.txt'
 
     return [inputfile, noisefile, outputfile, length]
@@ -133,10 +133,10 @@ def getWordCounts(data, noise, length):
 ## Dump aggregated data
 def dumpOutput(data, outputfile):
 
-    with open(outputfile + '.json', 'w') as outfile:
+    with open(outputfile, 'w') as outfile:
         json.dump(data, outfile)
 
-    print '...... Data dumped into ' + outputfile + '.json'
+    print '...... Data dumped into ' + outputfile
 
 
 if __name__ == "__main__":
