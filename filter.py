@@ -126,7 +126,7 @@ def getWordCounts(data, noise, length):
 
     max_size = df.iloc[0]['size']
     min_size = df.iloc[length if length < len(df.values) else len(df.values)-1]['size']
-    
+
     return [{'text': x[0], 'size': translate(x[1], min_size, max_size, 10, 100)} for x in df.values[:length]]
 
 
